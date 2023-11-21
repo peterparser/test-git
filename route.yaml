@@ -1,0 +1,17 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: test-apache-macron
+spec:
+  host: dev-apache-macron-test-macron.apps.elclown.lab.local
+  to:
+    kind: Service
+    name: httpd
+    weight: 100
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+
